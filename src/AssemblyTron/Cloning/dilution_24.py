@@ -157,25 +157,25 @@ def run(protocol: protocol_api.ProtocolContext): #for actually running the scrip
                 left_pipette.aspirate(df.loc[i].at['amount of template to add'], cold_tuberack[df.loc[i].at['template_well']], rate=2.0) #dilution well corresponds to stock well
                 left_pipette.dispense(df.loc[i].at['amount of template to add'], tuberack2[df.loc[i].at['template_well']], rate=2.0) #makes a 12.5ng/uL template
                 left_pipette.mix(3,5,tuberack2[df.loc[i].at['template_well']])
-    
+                left_pipette.drop_tip() 
             if 3.333 < df.loc[i].at['water to add'] < 10:
                 left_pipette.pick_up_tip()
                 left_pipette.aspirate(3*(df.loc[i].at['amount of template to add']), cold_tuberack[df.loc[i].at['template_well']], rate=2.0) #dilution well corresponds to stock well
                 left_pipette.dispense(3*(df.loc[i].at['amount of template to add']), tuberack2[df.loc[i].at['template_well']], rate=2.0) #makes a 12.5ng/uL template
                 left_pipette.mix(3,5,tuberack2[df.loc[i].at['template_well']])
-
+                left_pipette.drop_tip() 
             if 1 < df.loc[i].at['water to add'] < 3.333:
                 left_pipette.pick_up_tip()
                 left_pipette.aspirate(4*(df.loc[i].at['amount of template to add']), cold_tuberack[df.loc[i].at['template_well']], rate=2.0) #dilution well corresponds to stock well
                 left_pipette.dispense(4*(df.loc[i].at['amount of template to add']), tuberack2[df.loc[i].at['template_well']], rate=2.0) #makes a 12.5ng/uL template
                 left_pipette.mix(3,5,tuberack2[df.loc[i].at['template_well']])
-
+                left_pipette.drop_tip() 
             if df.loc[i].at['water to add'] < 1:
                 left_pipette.pick_up_tip()
                 left_pipette.aspirate(6*(df.loc[i].at['amount of template to add']), cold_tuberack[df.loc[i].at['template_well']], rate=2.0) #dilution well corresponds to stock well
                 left_pipette.dispense(6*(df.loc[i].at['amount of template to add']), tuberack2[df.loc[i].at['template_well']], rate=2.0) #makes a 12.5ng/uL template
                 left_pipette.mix(3,5,tuberack2[df.loc[i].at['template_well']])
-        left_pipette.drop_tip() #if template well can be diferent for each row must be moved back to if statements
+                left_pipette.drop_tip() 
         left_pipette.blow_out()
 
     #add stock templates for digests:
