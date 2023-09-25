@@ -150,7 +150,6 @@ def run(protocol: protocol_api.ProtocolContext): #for actually running the scrip
         right_pipette.blow_out()
         
     #add stock templates to dilution tubes
-    #remove the drop.tip from if function to reduce waste
         for i, row in df.iterrows():
             if df.loc[i].at['water to add'] > 10:
                 left_pipette.pick_up_tip()
