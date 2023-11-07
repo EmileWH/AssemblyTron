@@ -270,21 +270,21 @@ def run(protocol: protocol_api.ProtocolContext): #for actually running the scrip
                 right_pipette.blow_out()
                 right_pipette.drop_tip()
         
-    #add 1uL of BOTH (not each) primers
-        for j, row in pcr.iterrows():
+    #add 1uL of BOTH (not each) primers 
+        for j, row in pcr.iterrows():# Changed it so there are seperate for loops for each of the primers, also moved the drop tip function to outside the for loop
                 left_pipette.pick_up_tip()
                 left_pipette.aspirate(pcr.loc[j].at['primervol_x'], tuberack2[pcr.loc[j].at['well']], rate=2.0)
                 left_pipette.dispense(pcr.loc[j].at['primervol_x'], pcrplate[pcr.loc[j].at['tube']], rate=2.0)
                 left_pipette.mix(3,2,pcrplate[pcr.loc[j].at['tube']])
                 #left_pipette.blow_out()            
-                left_pipette.drop_tip()
-            
+        left_pipette.drop_tip()
+        for j, row in pcr.iterrows():
                 left_pipette.pick_up_tip()
                 left_pipette.aspirate(pcr.loc[j].at['primervol_y'], tuberack2[pcr.loc[j].at['well2']], rate=2.0)            
                 left_pipette.dispense(pcr.loc[j].at['primervol_y'], pcrplate[pcr.loc[j].at['tube']], rate=2.0)
                 left_pipette.mix(3,2,pcrplate[pcr.loc[j].at['tube']])
                 #left_pipette.blow_out()
-                left_pipette.drop_tip()
+        left_pipette.drop_tip()
         
     #add 1uL of each template
         for j, row in pcr.iterrows():
