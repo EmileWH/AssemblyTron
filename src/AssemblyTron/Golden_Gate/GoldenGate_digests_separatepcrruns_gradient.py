@@ -312,15 +312,10 @@ def run(protocol: protocol_api.ProtocolContext): #for actually running the scrip
                 right_pipette.aspirate(Q5, pcrplate[pcr.loc[j].at['tube']], rate=2.0)
                 #right_pipette.mix(3,Q5+3,pcrplate[pcr.loc[i].at['frag_pcr_tube']])
                 right_pipette.blow_out()
-                right_pipette.drop_tip()
-
-    #mix up
-        for j, row in pcr.iterrows():
-                right_pipette.pick_up_tip()
-                right_pipette.mix(3,Q5+3,pcrplate[pcr.loc[j].at['tube']])
+                right_pipette.mix(3,Q5+3,pcrplate[pcr.loc[j].at['tube']]) # made the mixing step in the same for loop as the other functions, so it doesnt drop the tip before mixing
                 right_pipette.blow_out()
                 right_pipette.drop_tip()
-        
+
         tc_mod.deactivate()
         temp_module.deactivate()
         
