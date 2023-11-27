@@ -58,14 +58,14 @@ def main():
                     "    right_pipette.pick_up_tip() \r\n"
                     "    right_pipette.aspirate("+str(df.loc[i].at['water to add'])+", watertuberack['A1'], rate=2.0) \r\n"
                     "    right_pipette.dispense("+str(df.loc[i].at['water to add'])+", plate96['"+str(df.loc[i].at['template_well'])+"'], rate=2.0) \r\n"
-                    "    right_pipette.drop_tip() \r\n"
+                    
                 )
             if 10 < df.loc[i].at['water to add'] < 20:
                 f.write(
                     "    right_pipette.pick_up_tip() \r\n"
                     "    right_pipette.aspirate("+str(2*(df.loc[i].at['water to add']))+", watertuberack['A1'], rate=2.0) \r\n"
                     "    right_pipette.dispense("+str(2*(df.loc[i].at['water to add']))+", plate96['"+str(df.loc[i].at['template_well'])+"'], rate=2.0) \r\n"
-                    "    right_pipette.drop_tip() \r\n"
+                   
                 )
 
             if 3.333 < df.loc[i].at['water to add'] < 10:
@@ -74,14 +74,14 @@ def main():
                         "    left_pipette.pick_up_tip() \r\n"
                         "    left_pipette.aspirate("+str(3*(df.loc[i].at['water to add']))+", watertuberack['A1'], rate=2.0) \r\n"
                         "    left_pipette.dispense("+str(3*(df.loc[i].at['water to add']))+", plate96['"+str(df.loc[i].at['template_well'])+"'], rate=2.0) \r\n"
-                        "    left_pipette.drop_tip() \r\n"
+
                     )
                 else:
                     f.write(
                         "    right_pipette.pick_up_tip() \r\n"
                         "    right_pipette.aspirate("+str(3*(df.loc[i].at['water to add']))+", watertuberack['A1'], rate=2.0) \r\n"
                         "    right_pipette.dispense("+str(3*(df.loc[i].at['water to add']))+", plate96['"+str(df.loc[i].at['template_well'])+"'], rate=2.0) \r\n"
-                        "    right_pipette.drop_tip() \r\n"
+
                     )
             if 1 < df.loc[i].at['water to add'] < 3.333:
                 if 4*(df.loc[i].at['water to add']) < 10:
@@ -89,23 +89,26 @@ def main():
                         "    left_pipette.pick_up_tip() \r\n"
                         "    left_pipette.aspirate("+str(4*(df.loc[i].at['water to add']))+", watertuberack['A1'], rate=2.0) \r\n"
                         "    left_pipette.dispense("+str(4*(df.loc[i].at['water to add']))+", plate96['"+str(df.loc[i].at['template_well'])+"'], rate=2.0) \r\n"
-                        "    left_pipette.drop_tip() \r\n"
+
                     )
                 else:
                     f.write(
                         "    right_pipette.pick_up_tip() \r\n"
                         "    right_pipette.aspirate("+str(4*(df.loc[i].at['water to add']))+", watertuberack['A1'], rate=2.0) \r\n"
                         "    right_pipette.dispense("+str(4*(df.loc[i].at['water to add']))+", plate96['"+str(df.loc[i].at['template_well'])+"'], rate=2.0) \r\n"
-                        "    right_pipette.drop_tip() \r\n"
+
                     )
             if df.loc[i].at['water to add'] < 1:
                 f.write(
                         "    left_pipette.pick_up_tip() \r\n"
                         "    left_pipette.aspirate("+str(6*(df.loc[i].at['water to add']))+", watertuberack['A1'], rate=2.0) \r\n"
                         "    left_pipette.dispense("+str(6*(df.loc[i].at['water to add']))+", plate96['"+str(df.loc[i].at['template_well'])+"'], rate=2.0) \r\n"
-                        "    left_pipette.drop_tip() \r\n"
-                    )
 
+                    )
+        f.write(
+            "    right_pipette.drop_tip() \r\n"
+            "    left_pipette.drop_tip() \r\n"
+        )
         #add water to primer dilution tubes      
         f.write(
             "    right_pipette.pick_up_tip() \r\n"
