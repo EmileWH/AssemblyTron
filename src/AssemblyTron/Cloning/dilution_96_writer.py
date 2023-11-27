@@ -107,7 +107,7 @@ def main():
                     )
         f.write(
             "    right_pipette.drop_tip() \r\n"
-            "    left_pipette.drop_tip() \r\n"
+            "    left_pipette.drop_tip() \r\n" # removed drop tip fucntion fromj the if statements and moved it to the outside of the for loop, this should reduce tip waste
         )
         #add water to primer dilution tubes      
         f.write(
